@@ -33,12 +33,9 @@ ts = tm
 setting_flow_rate = f(tm)
 plt.plot(ts, setting_flow_rate, 'k.-', label='setting flow rate')
 
-
-wn = 100
-zeta = 0.1
+wn = 33
+zeta = 0.0087
 tout, yout, xout = lsim2(([1, wn*wn], [1, zeta*wn*wn, wn*wn]), U=setting_flow_rate[:-25], T=ts[:-25])
-# tout, yout, xout = lsim2(([1, 1, 1], [1, 1, 1, 1, 1]), U=setting_flow_rate, T=ts)
-
 
 plt.plot(tm, machine_flow_rate, 'r.-', label='machine flow rate')
 plt.plot(tout, yout, 'b.-', label='simulation')
